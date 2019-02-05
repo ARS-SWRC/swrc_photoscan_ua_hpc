@@ -45,7 +45,7 @@ and connect to `vpn.hpc.arizona.edu`. In the Storm desktop you will find
 an icon named "Cisco Anyconnect Secure Mobile" as you can see in the
 image below.
 
-![](../img/cisco_vpn_storm.png)
+![](./img/cisco_vpn_storm.png)
 
 <br> Type `vpn.hpc.arizona.edu` in the input text box in case is not
 already there. Then, click connect and type username, password, and
@@ -66,7 +66,7 @@ other software that provides access to the console/command line, see the
 icon in the image below for one option in Storm. Terminal is just a name
 commonly used in Unix-like systems to identify the command line tool.
 
-![](../img/unix_terminal.png)
+![](./img/unix_terminal.png)
 
 <br> Ready to set up the connection to the UA-HPC from the terminal!
 
@@ -84,7 +84,7 @@ should not get password/passcode requests. Your credentials are divided
 into public and private, the public part is sent to the UA-HPC and the
 private stays in your user's folder.
 
-![](../gifs/ssh_credentials_uahpc.gif) <br>
+![](./gifs/ssh_credentials_uahpc.gif) <br>
 
 A brief description of what you see in the steps showed in the
 screencast above:
@@ -157,7 +157,7 @@ This path (`/xdisk/geponce/`) will be used in the
 `Photoscan Preferences` in the `Network` tab (see red box in the image
 below).
 
-![](../img/network_pref_photoscan.png) <br>
+![](./img/network_pref_photoscan.png) <br>
 
 Photoscan will point to this `/xdisk/username` folder and the physical
 location of that folder will be at the UA-HPC. <br>
@@ -204,7 +204,7 @@ Photoscan](https://github.com/cyverse-gis/suas-metadata/wiki/On-Demand-Processin
 
 **Screen cast exemplifying the run of previous commands:**
 
-![](../gifs/photoscan_server_login.gif)
+![](./gifs/photoscan_server_login.gif)
 
 ### 7. Loading Photoscan Pro software for the Server
 
@@ -219,7 +219,7 @@ Run this:
 **Note:** For some reason, the first time you try to load the license
 you get an error message, try again and it should work, see below.
 
-![](../img/photoscan_lic_load_error.png)
+![](./img/photoscan_lic_load_error.png)
 
 ### 8. Start Photoscan as a Server (orchestrator)
 
@@ -241,7 +241,7 @@ your folder, `/xdisk/username`, previously configured.
 In the screen cast below you will see the type of output messages you
 might get during these steps.
 
-![](../gifs/starting_photoscan_server.gif)
+![](./gifs/starting_photoscan_server.gif)
 
 ### 9. Request GPU node
 
@@ -291,7 +291,7 @@ Pro node by running the following line:
 
 See the previous steps running in the screen cast below:
 
-![](../gifs/photscan_gpu_node_start.gif) <br>
+![](./gifs/photscan_gpu_node_start.gif) <br>
 
 **Note:**<br> You will need a new request for every GPU node you want
 
@@ -303,7 +303,7 @@ where the server and GPUs were requested. By switching between tabs at
 the Terminal software you will be able to see what is going on with the
 Server/Orchestrator and the GPU nodes.
 
-![](../gifs/second_photoscan_nodegpu.gif) <br>
+![](./gifs/second_photoscan_nodegpu.gif) <br>
 
 From here, you can go through the same process as many times as nodes
 you want. Right now (Jan/2019) the maximum number of GPU nodes you are
@@ -319,7 +319,7 @@ Using this monitoring tool you can connect to the Photoscan Server
 (orchestrator) you will see the server and the GPU nodes
 working/progress.
 
-![](../gifs/photoscan_monitor.gif)<br>
+![](./gifs/photoscan_monitor.gif)<br>
 
 As you can see, the connection is made to the Photoscan server and at
 the bottom part, the list of GPU nodes shows up. Once you start the
@@ -332,7 +332,7 @@ Here is an example showing the use of Photoscan GUI in Storm (using
 SWRC-ARS-SWRC Photoscan License), opening a project and run the process
 "Build Dense Point Cloud" over the network setup.
 
-![](../gifs/photoscan_gui_example.gif) <br>
+![](./gifs/photoscan_gui_example.gif) <br>
 
 ### 14. Comments/Remarks
 
