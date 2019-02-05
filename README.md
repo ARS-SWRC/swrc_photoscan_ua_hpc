@@ -358,5 +358,3 @@ SWRC-ARS-SWRC Photoscan License), opening a project and run the process
 -   This process took ~ 1 day of processing time for building "Dense
     Point Cloud" with a project of 2000 photos at High quality and mild
     depth filtering versus 7 to 10 days when using a single computer.
-# Vegetation Monitoring @ WGEW & SRER
-Documenting the processing of drone imagery using Photoscan Pro at the UA-HPC
