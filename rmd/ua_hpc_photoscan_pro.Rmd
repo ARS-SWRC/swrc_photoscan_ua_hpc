@@ -1,7 +1,6 @@
 ---
 title: "Using Photoscan Pro with UA-HPC resources"
-author: "Guillermo E. Ponce-Campos"
-date: "1/30/2019"
+subtitle: "USDA-ARS-SWRC & The University of Arizona"
 output: 
   html_document:
     theme: spacelab
