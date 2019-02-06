@@ -17,15 +17,15 @@ facilities and users connect to it by using VNC (Virtual Network
 Connection) software to access a graphical user interface (GUI).
 
 **Note:** Non-Storm users could follow these steps from any terminal or
-command-line where Secure Shell (SSH) is installed. The main reasons I
-decided to run these test from Storm server are:
+command-line where Secure Shell (SSH) is installed. The main reasons
+behind running these tests from Storm server are:
 
 1.  Photoscan license available in Storm
 2.  X-Window configuration is already set for all users in Storm.
 3.  Other software (e.g. SSH tools, Cisco VPN) already available for
     every user in Storm (ssh,ssh-keygen, ssh-copy-id, sshfs,etc.).
 
-Screencasts are included in this guide to support users that are not
+Screen casts are included in this guide to support users that are not
 familiarized with some of the concepts mentioned.
 
 ### 1. Requirements
