@@ -328,9 +328,9 @@ monitoring tool.
 
 ### 13. Testing from the Photoscan Pro GUI
 
-Here is an example showing the use of Photoscan GUI in Storm (using
-SWRC-ARS-SWRC Photoscan License), opening a project and run the process
-"Build Dense Point Cloud" over the network setup.
+Here is a screencast showing the use of Photoscan GUI in Storm (using
+SWRC-ARS-SWRC Photoscan License) on how to open the project and run the
+process "Build Dense Point Cloud" using the configured UA-HPC cluster.
 
 ![](./gifs/photoscan_gui_example.gif) <br>
 
@@ -358,3 +358,7 @@ SWRC-ARS-SWRC Photoscan License), opening a project and run the process
 -   This process took ~ 1 day of processing time for building "Dense
     Point Cloud" with a project of 2000 photos at High quality and mild
     depth filtering versus 7 to 10 days when using a single computer.
+
+-   The processes demonstrated here could reach a higher level of
+    automation by taking advantage of the Python API provided by Agisoft
+    and some of the resources offered by the UA-HPC team.
