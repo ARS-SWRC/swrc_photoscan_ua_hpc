@@ -1,7 +1,3 @@
-Using Photoscan Pro with UA-HPC resources
-==============
-***USDA-ARS-SWRC & The University of Arizona***
-
 The aim of this notebook is to document the steps for processing drone
 imagery using Photoscan Pro and the High Performance Computing services
 from The University of Arizona (UA). Users of these resources are part
@@ -25,7 +21,7 @@ behind running these tests from Storm server are:
 3.  Other software (e.g. SSH tools, Cisco VPN) already available for
     every user in Storm (ssh,ssh-keygen, ssh-copy-id, sshfs,etc.).
 
-Screen casts are included in this guide to support users that are not
+Screencasts are included in this guide to support users that are not
 familiarized with some of the concepts mentioned.
 
 ### 1. Requirements
@@ -202,7 +198,7 @@ beyond a day or two. For more information you can see the official
 [Cyverse-GIS guide on
 Photoscan](https://github.com/cyverse-gis/suas-metadata/wiki/On-Demand-Processing-with-University-of-Arizona-HPC).
 
-**Screen cast exemplifying the run of previous commands:**
+**Screencast exemplifying the run of previous commands:**
 
 ![](./gifs/photoscan_server_login.gif)
 
@@ -238,7 +234,7 @@ assigned to you. You get the name and then append
 `ocelote.hpc.arizona.edu`. The final part of the command is the name of
 your folder, `/xdisk/username`, previously configured.
 
-In the screen cast below you will see the type of output messages you
+In the screencast below you will see the type of output messages you
 might get during these steps.
 
 ![](./gifs/starting_photoscan_server.gif)
@@ -270,7 +266,7 @@ access granted. The node reservation time (`cput`) is for 2 days (28
 cpus \* 48 hrs).
 
 In the next section you can see the previous commands running in a
-screen cast.
+screencast.
 
 ### 10. Load Photoscan @ Node
 
@@ -289,7 +285,7 @@ Pro node by running the following line:
 
 **Do not forget to change the server name.**
 
-See the previous steps running in the screen cast below:
+See the previous steps running in the screencast below:
 
 ![](./gifs/photscan_gpu_node_start.gif) <br>
 
