@@ -1,5 +1,5 @@
 The aim of this notebook is to document the steps for processing drone
-imagery using Photoscan Pro and the High Performance Computing services
+imagery using PhotoScan Pro and the High Performance Computing services
 from The University of Arizona (UA). Users of these resources are part
 of a collaboration project between USDA-ARS-SWRC and UA.
 
@@ -16,7 +16,7 @@ Connection) software to access a graphical user interface (GUI).
 command-line where Secure Shell (SSH) is installed. The main reasons
 behind running these tests from Storm server are:
 
-1.  Photoscan license available in Storm
+1.  PhotoScan license available in Storm
 2.  X-Window configuration is already set for all users in Storm.
 3.  Other software (e.g. SSH tools, Cisco VPN) already available for
     every user in Storm (ssh,ssh-keygen, ssh-copy-id, sshfs,etc.).
@@ -31,7 +31,7 @@ familiarized with some of the concepts mentioned.
     2-factor-authentication)
 -   Access to a terminal/command line with Secure Shell software (SSH)
     installed
--   A folder ready with all the drone imagery and photoscan project.
+-   A folder ready with all the drone imagery and PhotoScan project.
     These need to be transfered to UA-HPC.
 
 ### 2. Connecting to UA-VPN from Storm server
@@ -123,13 +123,13 @@ your password and passcode**.
 
 ### 5. Transfer data to UA-HPC
 
-The folder with imagery and Photoscan project should be ready to be
+The folder with imagery and PhotoScan project should be ready to be
 copied into UA-HPC.
 
 -   The location `/xdisk/username` needs to be created in Storm just
     once. Check the availability of the folder by typing
     `ls /xdisk/username`. If you can't list it, please request its
-    creation at ARS-USDA-SWRC.
+    creation at USDA-ARS-SWRC.
 
 -   All the projects can live within that folder since this is just a
     shared file system in the UA-HPC.
@@ -150,30 +150,30 @@ Folder `project1` is copied (sent to UA-HPC) to `/xdisk/geponce/`
 network file system.
 
 This path (`/xdisk/geponce/`) will be used in the
-`Photoscan Preferences` in the `Network` tab (see red box in the image
+`PhotoScan Preferences` in the `Network` tab (see red box in the image
 below).
 
 ![](./img/network_pref_photoscan.png) <br>
 
-Photoscan will point to this `/xdisk/username` folder and the physical
+PhotoScan will point to this `/xdisk/username` folder and the physical
 location of that folder will be at the UA-HPC. <br>
 
 **Note:**
 
 One question that emerged during this step is: Where should I
 start/store my project at? E.g. If the project is stored in
-`/username/projects/proj1/`, Photoscan will save that path in the
+`/username/projects/proj1/`, PhotoScan will save that path in the
 metadata of the project. Thus, if the project is moved into
-`/xdisk/username` for doing the heavy lifting processing, Photoscan will
+`/xdisk/username` for doing the heavy lifting processing, PhotoScan will
 look for the former path. Therefore, metadata should be checked before
 starting the HPC processing to make sure that the references to file
 paths are correct.
 
-### 6. Request a node for Photoscan Server (orchestrator)
+### 6. Request a node for PhotoScan Server (orchestrator)
 
-Next step is to request/initiate the Photoscan Server. This is a
+Next step is to request/initiate the PhotoScan Server. This is a
 node/computer that will work as the orchestrator of the processing,
-coordinating the access to Photoscan at each CPU's/GPU's.
+coordinating the access to PhotoScan at each CPU's/GPU's.
 
 First, open a terminal and connect to HPC-Server (gatekeeper).
 
@@ -196,17 +196,17 @@ access granted. Some of the parameters have been changed to increase the
 resource reservation time. E.g. `walltime`, in case the processing goes
 beyond a day or two. For more information you can see the official
 [Cyverse-GIS guide on
-Photoscan](https://github.com/cyverse-gis/suas-metadata/wiki/On-Demand-Processing-with-University-of-Arizona-HPC).
+PhotoScan](https://github.com/cyverse-gis/suas-metadata/wiki/On-Demand-Processing-with-University-of-Arizona-HPC).
 
 **Screencast exemplifying the run of previous commands:**
 
 ![](./gifs/photoscan_server_login.gif)
 
-### 7. Loading Photoscan Pro software for the Server
+### 7. Loading PhotoScan Pro software for the Server
 
 Once you get access to the server node, you will be at the command line
 of the server you just requested. Here you need to activate/load
-Photoscan Pro License.
+PhotoScan Pro License.
 
 Run this:
 
@@ -217,14 +217,14 @@ you get an error message, try again and it should work, see below.
 
 ![](./img/photoscan_lic_load_error.png)
 
-### 8. Start Photoscan as a Server (orchestrator)
+### 8. Start PhotoScan as a Server (orchestrator)
 
 In this step, you need to identify the name of the server that was
 assigned to you. You can find it at the left side of the cursor in the
 command line, see below in the animated example, the server/node name is
 highlighted.
 
-Run this line to activate the Photoscan Server (orchestrator).
+Run this line to activate the PhotoScan Server (orchestrator).
 
     # Change the name of the server by the one you got
     photoscan.sh --server --dispatch i7n17.ocelote.hpc.arizona.edu --control i7n17.ocelote.hpc.arizona.edu --root /xdisk/geponce
@@ -268,17 +268,17 @@ cpus \* 48 hrs).
 In the next section you can see the previous commands running in a
 screencast.
 
-### 10. Load Photoscan @ Node
+### 10. Load PhotoScan @ Node
 
-At the command line of the assigned node/gpu load the Photoscan license
+At the command line of the assigned node/gpu load the PhotoScan license
 for it. Remember to run this line twice if you get a message error the
 first time.
 
     module load photoscan-pro/1/1.4.3
 
-### 11. Start Photoscan as a Node (GPU)
+### 11. Start PhotoScan as a Node (GPU)
 
-The final step in setting up the GPU node is to start it as a Photoscan
+The final step in setting up the GPU node is to start it as a PhotoScan
 Pro node by running the following line:
 
     photoscan.sh --node --dispatch i7n17.ocelote.hpc.arizona.edu --capability any --cpu_enable 1 --gpu_mask 1 --root /xdisk/geponce
@@ -305,27 +305,27 @@ From here, you can go through the same process as many times as nodes
 you want. Right now (Jan/2019) the maximum number of GPU nodes you are
 able to request is 10.
 
-### 12. Start Photoscan Network Monitor
+### 12. Start PhotoScan Network Monitor
 
 At the Storm user's Desktop find the program Photoscan\_Monitor. This
 will start the software that will allow you to monitor the activity of
 the GPU's network.
 
-Using this monitoring tool you can connect to the Photoscan Server
+Using this monitoring tool you can connect to the PhotoScan Server
 (orchestrator) you will see the server and the GPU nodes
 working/progress.
 
 ![](./gifs/photoscan_monitor.gif)<br>
 
-As you can see, the connection is made to the Photoscan server and at
+As you can see, the connection is made to the PhotoScan server and at
 the bottom part, the list of GPU nodes shows up. Once you start the
-processing in the Photoscan Pro GUI you will see activity in this
+processing in the PhotoScan Pro GUI you will see activity in this
 monitoring tool.
 
-### 13. Testing from the Photoscan Pro GUI
+### 13. Testing from the PhotoScan Pro GUI
 
-Here is a screencast showing the use of Photoscan GUI in Storm (using
-SWRC-ARS-SWRC Photoscan License) on how to open the project and run the
+Here is a screencast showing the use of PhotoScan GUI in Storm (using
+SWRC-ARS-SWRC PhotoScan License) on how to open the project and run the
 process "Build Dense Point Cloud" using the configured UA-HPC cluster.
 
 ![](./gifs/photoscan_gui_example.gif) <br>
@@ -341,14 +341,14 @@ process "Build Dense Point Cloud" using the configured UA-HPC cluster.
 -   To investigate how to make projects with relative file paths instead
     of absolute, as is set in the metadata. As it was mentioned above,
     when files are copied to UA-HPC in the file system
-    `/xdisk/username`, Photoscan will try to find imagery and other
+    `/xdisk/username`, PhotoScan will try to find imagery and other
     files in whatever path is the project in and that is not the way
-    Photoscan works in a distributed computing environment; imagery
+    PhotoScan works in a distributed computing environment; imagery
     needs to exist within the `/xdisk/username`.
 
 -   These steps might involve lots of command-typing, but at this point,
     this workflow is the best choice to process lots of images in
-    Photoscan, especially if the goal is to run this process for several
+    PhotoScan, especially if the goal is to run this process for several
     flights.
 
 -   This process took ~ 1 day of processing time for building "Dense
