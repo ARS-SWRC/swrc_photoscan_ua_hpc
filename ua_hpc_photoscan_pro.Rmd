@@ -39,7 +39,7 @@ familiarized  with some of the concepts mentioned.
 * UA-NetID (your_username@email.arizona.edu)
 * Passcodes (Numbers sent by message by the UA for 2-factor-authentication)
 * Access to a terminal/command line with Secure Shell software (SSH) installed
-* A folder ready with all the drone imagery and photoscan project. These need to
+* A folder ready with all the drone imagery and photoscan project. This need to
 be transfered to UA-HPC.
 
 
