@@ -32,7 +32,7 @@ familiarized with some of the concepts mentioned.
 -   Access to a terminal/command line with Secure Shell software (SSH)
     installed
 -   A folder ready with all the drone imagery and PhotoScan project.
-    These need to be transfered to UA-HPC.
+    This need to be transfered to UA-HPC.
 
 ### 2. Connecting to UA-VPN from Storm server
 
