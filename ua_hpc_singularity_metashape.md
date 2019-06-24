@@ -35,7 +35,7 @@ Run the TigerVNC viewer and use the port number provided for your
 storm user. In the image below, the port is 4. If `storm` does not work, use the
 Storm's internal ip address: `10.1.2.234`.  E.g. `10.1.2.234:4`
 
-<center><img src="./gifs/tigervnc.png" alt="" width="320px" height="250px"/></center>
+![](./gifs/tigervnc.png)
 
 
 ### 3. Set up UA-credentials to access HPC
