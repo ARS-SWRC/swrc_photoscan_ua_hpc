@@ -48,9 +48,7 @@ To save time and avoid password and passcode requests everytime you need to acce
 
 - Open terminal in Storm
 - Run `ssh-keygen -t rsa` (see animation)
-<center>
 ![](./gifs/ssh_credentials_uahpc.gif)
-</center>
 - Run `ssh user_name@hpc.arizona.edu`
 
 After you exited from gatekeeper HPC server you will be at your STORM command line, that is where you need to type the following:
