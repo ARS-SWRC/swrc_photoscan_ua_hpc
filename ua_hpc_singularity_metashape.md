@@ -49,7 +49,7 @@ To save time and avoid password and passcode requests everytime you need to acce
 - Open terminal in Storm
 - Run `ssh-keygen -t rsa` (see animation)
 <center>
-![](https://raw.githubusercontent.com/ARS-SWRC/swrc_photoscan_ua_hpc/master/gifs/ssh_credentials_uahpc.gif)
+![](./gifs/ssh_credentials_uahpc.gif)
 </center>
 - Run `ssh user_name@hpc.arizona.edu`
 
