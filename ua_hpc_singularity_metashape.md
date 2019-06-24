@@ -1,4 +1,5 @@
-## Using ARS-SWRC Storm server to access Metashape in the HPC-Arizona
+## Using ARS-SWRC Storm server to access Metashape in the University of Arizona
+High Performance Computing server.
 
 ### 1. Get an account in Storm server @ USDA-ARS-SWRC 
 
