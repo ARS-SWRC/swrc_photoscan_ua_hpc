@@ -113,9 +113,10 @@ and then run the copy instruction:
 
 This could take some time since it will copy (transfer) all the files/folders 
 from Storm to the HPC xdisk system.
-
 <hr>
+
 #### Miscellaneous tasks (Just for the case where you start a project out of /xdisk... path)
+
 <hr>
 Metashape saves absolute path inside of metadata xml files when your `DCIM` folder
 is located in a different folder than your project.  Therefore, it is necessary 
