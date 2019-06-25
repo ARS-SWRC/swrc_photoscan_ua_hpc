@@ -50,7 +50,9 @@ To save time and avoid password and passcode requests everytime you need to acce
 
 - Open terminal in Storm
 - Run `ssh-keygen -t rsa` (see animation)
+
 ![](./gifs/ssh_credentials_uahpc.gif)
+
 - Run `ssh user_name@hpc.arizona.edu`
 
 After you exited from gatekeeper HPC server you will be at your STORM command line, that is where you need to type the following:
@@ -70,8 +72,48 @@ Then, test it, the following should not ask for the Duo two-factor login anymore
 
 ### 4. Copy data into xdisk partition
 
-sshfs -o sshfs_debug user_name@filexfer.hpc.arizona.edu:/xdisk/user_name /xdisk/user_name
+First, create a `xdisk` partition at the Ocelote HPC cluster. This is only done
+once, and it's where data should reside, so all the nodes can see the imagery.
 
+For creating `xdisk` file system do the following:
+
+- Connect to HPC: `ssh -X user_name@hpc.arizona.edu`
+
+- Once connected, get into Ocelote: `ocelote -X`
+
+- Then do the storage request for `xdisk`. E.g. To get 700GB for 45 days run
+this instruction in the command line from Ocelote: `xdisk -c create -m 700 -d 45` 
+
+Exit from Ocelote and HPC. From your account in Storm run this (**Note**: Make sure
+there is a folder in Storm called `/xdisk/user_name`, if not, ask to Storm 
+server administrator to create it for you):
+
+`sshfs -o sshfs_debug user_name@filexfer.hpc.arizona.edu:/xdisk/user_name /xdisk/user_name`
+
+Running the previous command will ask for your UA Authentication protocol 
+(2 factor auth). Again, this is only one-time step, since once is created in 
+your account at Ocelote, it will remain active until your expiration date of the
+xdisk file system.
+
+Regarding expiration date, you will receive an email when the number of days you
+selected is close, so you will have the option to extend the number of days
+of your file system.  For example, to extend your file system time period for 
+20 days, just connect to HPC and enter to Ocelote and run this: 
+`xdisk -c expire -d 20`. 
+
+If you don't extend the date your files will be removed.
+
+##### Copying files to `xdisk` in Ocelote
+
+In Storm terminal you can start copying files by doing this:
+
+Change to the directory where you have the data that will be moved to the HPC
+and then run the copy instruction:
+
+`cp -R * /xdisk/user_name`  
+
+This could take some time since it will copy (transfer) all the files/folders 
+from Storm to the HPC xdisk system.
 
 #### Miscellaneous tasks (Just for the case where you start a project out of /xdisk... path)
 
