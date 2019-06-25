@@ -1,4 +1,4 @@
-## Using ARS-SWRC Storm server to access Metashape in the University of Arizona HPC (High Performance Computing) server
+## Using ARS-SWRC Storm server to access MetaShape in the University of Arizona HPC (High Performance Computing) server
 
 ### 1. Get an account in Storm server @ USDA-ARS-SWRC 
 
@@ -6,15 +6,14 @@
 
 - Storm is a high-performance node with a significant amount of RAM (1.4 TB) and 
 storage.
-- Access to graphical interface (windows-like)
+- Access to graphical interface (windows-like),
 - Storm has the operating system RedHat 7.6 Linux installed, this is relevant 
 because a lot of the HPC systems use the same or similar OS, therefore, it helps
-with the interaction (terminal and X-window systems)
+with the interaction (terminal and X-window systems),
 - Regarding X-window system, this might be the most important reason on using 
 Storm. A lot of the interaction with the HPC requires having the X-system 
-installed in the host computer. 
-- Finally, Storm could be an option to keep projects centralized, which might be 
-important when you need to deal with several of them. 
+installed in the host computer,   
+- Finally, Storm could be an option to keep projects centralized.
 
 ### 2. Login to your Storm account
 
@@ -115,8 +114,9 @@ and then run the copy instruction:
 This could take some time since it will copy (transfer) all the files/folders 
 from Storm to the HPC xdisk system.
 
+<hr>
 #### Miscellaneous tasks (Just for the case where you start a project out of /xdisk... path)
-
+<hr>
 Metashape saves absolute path inside of metadata xml files when your `DCIM` folder
 is located in a different folder than your project.  Therefore, it is necessary 
 to update those paths in that case.
@@ -156,13 +156,27 @@ Once the paths are fixed it is time to move forward.
 
 ### 5. Start Metashape as a server in STORM
 
-This will start Metashape as a server. 
+Before moving on, copy `metashape-ubuntu16.sif` file to the user xdisk 
+partition (e.g. /xdisk/user_name/). This is a Singularity file containing the 
+Metashape.sif that Tyson Swetnam provided. 
+
+This file is available in the ARS-SWRC FTP. To copy it, login to Storm and
+change to the folder /xdisk/user_name and then run this:
+
+`wget ftp://www-ftp.tucson.ars.ag.gov/GIS/Metashape/metashape-ubuntu16.sif`
+
+Now, start Metashape as a server, run this line in Storm account. This will start
+a Metashape as server, which will be the "coordinator" of all the NODES/GPU from
+the HPC.
 
 `/mnt/DATA/DOWNLOADS/SOFTWARE/METASHAPE/metashape-pro/metashape.sh --server --control 10.1.2.234 --dispatch 10.1.2.234 --root /xdisk/user_name`
 
-### 6. Get GPU node(s)
+
+### 6. Requesting GPU node(s)
 
 #### Connect to HPC Ocelote from local computer
+
+The following For each node needed 
 
 `ssh -X user_name@hpc.arizona.edu`
 
@@ -186,17 +200,27 @@ After node is granted, run this:
 
 `module load singularity` 
 
-### Execute Metashape inside Singularity container in HPC and dispatch it to STORM
+### 7. Execute Metashape inside Singularity container in HPC and dispatch it to STORM
 
 This will enable Metashape to run in GPU's using Metashape server in Storm as the 
 node-coordinator.  `user_name` in the following line need to be changed for the 
 current user.
 
+
 `singularity exec --nv /xdisk/user_name/metashape-ubuntu16.sif /opt/metashape-pro/metashape.sh  --node --dispatch 198.22.133.207 --capability any --cpu_enable 1 --gpu_mask 1 --root /xdisk/user_name`
 
 Go to Storm server and start Metashape Monitor (GUI) to follow node's activity.
+In the monitor you type storm internal IP 10.1.2.234 and port 5840.
 
-Start Metashape and proceed to do the processing.
+![](./gifs/MetashapeMonitor.png)
+  
+Now you can start MetaShape GUI and proceed to do the processing.  Recall to do
+the network setup in MetaShape GUI (Tools + Preferences), see figure below.
+
+Host name is the internal IP address from Storm and the port number is 5840.
+In the Root section type the `xdisk` folder where all the imagery is located.
+
+![](./gifs/MetashapeGUI.png)
 
 
 
