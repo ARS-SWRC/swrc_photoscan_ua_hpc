@@ -208,7 +208,7 @@ node-coordinator.  <code><b>user_name</b></code> in the following line need to b
 current user.
 
 
-<code>singularity exec --nv /xdisk/<b>user_name</b>/metashape-ubuntu16.sif /opt/metashape-pro/metashape.sh  --node --dispatch 198.22.133.207 --capability any --cpu_enable 1 --gpu_mask 1 --root /xdisk/<b>user_name</b></<code>
+<code>singularity exec --nv /xdisk/<b>user_name</b>/metashape-ubuntu16.sif /opt/metashape-pro/metashape.sh  --node --dispatch 198.22.133.207 --capability any --cpu_enable 1 --gpu_mask 1 --root /xdisk/<b>user_name</b></code>
 
 Go to Storm server and start Metashape Monitor (GUI) to follow node's activity.
 In the monitor you type storm internal IP 10.1.2.234 and port 5840.
