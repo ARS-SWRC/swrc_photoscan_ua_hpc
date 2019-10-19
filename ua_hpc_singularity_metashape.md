@@ -23,7 +23,7 @@ IT-Personnel for the user and password to access through Cisco ARS-VPN.
 Once connected to the VPN, there are two ways to login to **Storm** server.
 
 1.Using telnet-like connection 
-`ssh `**``**`user_name`**``**`storm` or if name resolution doesn't work, try this:
+`ssh `**`user_name`**`@storm` or if name resolution doesn't work, try this:
 `ssh `**`user_name`**`@10.1.2.234` 
 
 2.Using VNC (Virtual Network Connector) viewer
@@ -158,11 +158,11 @@ Once the paths are fixed it is time to move forward.
 ### 5. Start Metashape as a server in STORM
 
 Before moving on, copy `metashape-ubuntu16.sif` file to the user xdisk 
-partition (e.g. /xdisk/`**`user_name`**`/). This is a Singularity file containing the 
+partition (e.g. /xdisk/**user_name**/). This is a Singularity file containing the 
 Metashape.sif that Tyson Swetnam provided. 
 
 This file is available in the ARS-SWRC FTP. To copy it, login to Storm and
-change to the folder /xdisk/`**`user_name`**` and then run this:
+change to the folder /xdisk/**user_name** and then run this:
 
 `wget ftp://www-ftp.tucson.ars.ag.gov/GIS/Metashape/metashape-ubuntu16.sif`
 
