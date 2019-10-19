@@ -23,7 +23,7 @@ IT-Personnel for the user and password to access through Cisco ARS-VPN.
 Once connected to the VPN, there are two ways to login to **Storm** server.
 
 1.Using telnet-like connection 
-`ssh user_name@storm` or if name resolution doesn't work, try this:
+`ssh **user_name**@storm` or if name resolution doesn't work, try this:
 `ssh user_name@10.1.2.234` 
 
 2.Using VNC (Virtual Network Connector) viewer
@@ -124,7 +124,7 @@ to update those paths in that case.
 
 For example:
 `RG83_flight_9-13-2018` project was started in `/home/user/Projects/RG83_flight_9-13-2018`
-and the `DCMIM` folder was in another location `/mnt/DATA/...`.  
+and the `DCIM` folder was in another location `/mnt/DATA/...`.  
 
 This caused some issues when project was copied into the networked filesystem
 `/xdisk/geponce` due to the project had an absolute path for all the images.
