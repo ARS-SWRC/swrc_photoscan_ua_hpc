@@ -23,8 +23,8 @@ IT-Personnel for the user and password to access through Cisco ARS-VPN.
 Once connected to the VPN, there are two ways to login to **Storm** server.
 
 1.Using telnet-like connection 
-`ssh **user_name**@storm` or if name resolution doesn't work, try this:
-`ssh user_name@10.1.2.234` 
+`ssh `**``**`user_name`**``**`storm` or if name resolution doesn't work, try this:
+`ssh `**`user_name`**`@10.1.2.234` 
 
 2.Using VNC (Virtual Network Connector) viewer
 
@@ -52,14 +52,14 @@ To save time and avoid password and passcode requests everytime you need to acce
 
 ![](./gifs/ssh_credentials_uahpc.gif)
 
-- Run `ssh user_name@hpc.arizona.edu`
+- Run `ssh `**`user_name`**`@hpc.arizona.edu`
 
 After you exited from gatekeeper HPC server you will be at your STORM command line, that is where you need to type the following:
 
 **NOTE** Don't forget to change the permissions to 600 to files `id_rsa, known_hosts` 
 and to 644 for `id_rsa.pub` before trying the following.
 
-`ssh-copy-id -i ~/.ssh/ida_rsa user_name@hpc.arizona.edu`
+`ssh-copy-id -i ~/.ssh/ida_rsa `**`user_name`**`@hpc.arizona.edu`
 
 After credentials are copied to the HPC server run the following:
 
@@ -67,7 +67,7 @@ After credentials are copied to the HPC server run the following:
 
 Then, test it, the following should not ask for the Duo two-factor login anymore.
 
-`ssh user_name@hpc.arizona.edu` 
+`ssh `**`user_name`**`@hpc.arizona.edu` 
 
 ### 4. Copy data into xdisk partition
 
@@ -76,7 +76,7 @@ once, and it's where data should reside, so all the nodes can see the imagery.
 
 For creating `xdisk` file system do the following:
 
-- Connect to HPC: `ssh -X user_name@hpc.arizona.edu`
+- Connect to HPC: `ssh -X `**`user_name`**`@hpc.arizona.edu`
 
 - Once connected, get into Ocelote: `ocelote -X`
 
@@ -84,10 +84,10 @@ For creating `xdisk` file system do the following:
 this instruction in the command line from Ocelote: `xdisk -c create -m 700 -d 45` 
 
 Exit from Ocelote and HPC. From your account in Storm run this (**Note**: Make sure
-there is a folder in Storm called `/xdisk/user_name`, if not, ask to Storm 
+there is a folder in Storm called `/xdisk/`**`user_name`**``, if not, ask to Storm 
 server administrator to create it for you):
 
-`sshfs -o sshfs_debug user_name@filexfer.hpc.arizona.edu:/xdisk/user_name /xdisk/user_name`
+`sshfs -o sshfs_debug `**`user_name`**`@filexfer.hpc.arizona.edu:/xdisk/`**`user_name`**` /xdisk/`**`user_name`**``
 
 Running the previous command will ask for your UA Authentication protocol 
 (2 factor auth). Again, this is only one-time step, since once is created in 
@@ -109,7 +109,7 @@ In Storm terminal you can start copying files by doing this:
 Change to the directory where you have the data that will be moved to the HPC
 and then run the copy instruction:
 
-`cp -R * /xdisk/user_name`  
+`cp -R * /xdisk/`**`user_name`**``  
 
 This could take some time since it will copy (transfer) all the files/folders 
 from Storm to the HPC xdisk system.
@@ -158,11 +158,11 @@ Once the paths are fixed it is time to move forward.
 ### 5. Start Metashape as a server in STORM
 
 Before moving on, copy `metashape-ubuntu16.sif` file to the user xdisk 
-partition (e.g. /xdisk/user_name/). This is a Singularity file containing the 
+partition (e.g. /xdisk/`**`user_name`**`/). This is a Singularity file containing the 
 Metashape.sif that Tyson Swetnam provided. 
 
 This file is available in the ARS-SWRC FTP. To copy it, login to Storm and
-change to the folder /xdisk/user_name and then run this:
+change to the folder /xdisk/`**`user_name`**` and then run this:
 
 `wget ftp://www-ftp.tucson.ars.ag.gov/GIS/Metashape/metashape-ubuntu16.sif`
 
@@ -170,7 +170,7 @@ Now, start Metashape as a server, run this line in Storm account. This will star
 a Metashape as server, which will be the "coordinator" of all the NODES/GPU from
 the HPC.
 
-`/mnt/DATA/DOWNLOADS/SOFTWARE/METASHAPE/metashape-pro/metashape.sh --server --control 10.1.2.234 --dispatch 10.1.2.234 --root /xdisk/user_name`
+`/mnt/DATA/DOWNLOADS/SOFTWARE/METASHAPE/metashape-pro/metashape.sh --server --control 10.1.2.234 --dispatch 10.1.2.234 --root /xdisk/`**`user_name`**``
 
 
 ### 6. Requesting GPU node(s)
@@ -179,7 +179,7 @@ the HPC.
 
 The following For each node needed 
 
-`ssh -X user_name@hpc.arizona.edu`
+`ssh -X `**`user_name`**`@hpc.arizona.edu`
 
 `ocelote -X`
 
@@ -204,11 +204,11 @@ After node is granted, run this:
 ### 7. Execute Metashape inside Singularity container in HPC and dispatch it to STORM
 
 This will enable Metashape to run in GPU's using Metashape server in Storm as the 
-node-coordinator.  `user_name` in the following line need to be changed for the 
+node-coordinator.  ``**`user_name`**`` in the following line need to be changed for the 
 current user.
 
 
-`singularity exec --nv /xdisk/user_name/metashape-ubuntu16.sif /opt/metashape-pro/metashape.sh  --node --dispatch 198.22.133.207 --capability any --cpu_enable 1 --gpu_mask 1 --root /xdisk/user_name`
+`singularity exec --nv /xdisk/`**`user_name`**`/metashape-ubuntu16.sif /opt/metashape-pro/metashape.sh  --node --dispatch 198.22.133.207 --capability any --cpu_enable 1 --gpu_mask 1 --root /xdisk/`**`user_name`**``
 
 Go to Storm server and start Metashape Monitor (GUI) to follow node's activity.
 In the monitor you type storm internal IP 10.1.2.234 and port 5840.
