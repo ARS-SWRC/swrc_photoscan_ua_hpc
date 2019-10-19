@@ -179,7 +179,7 @@ the HPC.
 
 The following For each node needed 
 
-<code>ssh -X <b>user_name</b>@hpc.arizona.edu<code>
+<code>ssh -X <b>user_name</b>@hpc.arizona.edu</code>
 
 `ocelote -X`
 
